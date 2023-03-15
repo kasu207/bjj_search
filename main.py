@@ -3,8 +3,8 @@ import pandas as pd
 import requests
 
 # Page setup
-st.set_page_config(page_title="Python Talks Search Engine", page_icon="🐍", layout="wide")
-st.title("Jiu Jitsu Instructions Search Engine")
+st.set_page_config(page_title="BJJ Instructions Search Engine", page_icon="🦐", layout="wide")
+st.title("BJJ Instructions Search Engine")
 
 # Connect to the Google Sheet
 sheet_id = "17AvwdOvpD7CaFVF9CKGWS6kJ4gNeqcfTV6ekZiGGqwU"
@@ -36,6 +36,4 @@ if text_search:
             st.markdown(f"**{row['title'].strip()}**")
             st.markdown(f"*{row['instructor'].strip()}*")
             st.markdown(f"*{row['game'].strip()}*")
-            st.markdown(f"*{row['type'].strip()}*")
-            st.markdown(f"**{row['rating']}**")
-            st.markdown(f"**{row['source']}**")
+
