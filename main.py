@@ -4,7 +4,7 @@ import requests
 
 # Page setup
 st.set_page_config(page_title="Python Talks Search Engine", page_icon="🐍", layout="wide")
-st.title("Python Talks Search Engine")
+st.title("Jiu Jitsu Instructions Search Engine")
 
 # Connect to the Google Sheet
 sheet_id = "17AvwdOvpD7CaFVF9CKGWS6kJ4gNeqcfTV6ekZiGGqwU"
