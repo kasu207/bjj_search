@@ -12,17 +12,15 @@ sheet_name = "list"
 url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/gviz/tq?tqx=out:csv&sheet={sheet_name}"
 df = pd.read_csv(url, dtype=str).fillna("")
 
-# Show the dataframe (we'll delete this later)
-st.write(df)
-
 # Use a text_input to get the keywords to filter the dataframe
-text_search = st.text_input("Search videos by title or speaker", value="")
+text_search = st.text_input("Search videos by title, instructor, game ply", value="")
 
 # Filter the dataframe using masks
 m1 = df["title"].str.contains(text_search)
 m2 = df["instructor"].str.contains(text_search)
 m3 = df["game"].str.contains(text_search)
-df_search = df[m1 | m2 | m3]
+m4 = df["type"].str.contains(text_search)
+df_search = df[m1 | m2 | m3 | m4]
 
 # Show the results, if you have a text_search
 N_cards_per_row = 3
@@ -37,5 +35,7 @@ if text_search:
             st.caption(f"{row['title'].strip()} - {row['game'].strip()}")
             st.markdown(f"**{row['title'].strip()}**")
             st.markdown(f"*{row['instructor'].strip()}*")
+            st.markdown(f"*{row['game'].strip()}*")
+            st.markdown(f"*{row['type'].strip()}*")
             st.markdown(f"**{row['rating']}**")
             st.markdown(f"**{row['source']}**")
