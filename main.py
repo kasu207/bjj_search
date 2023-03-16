@@ -47,7 +47,7 @@ if text_search:
             st.markdown(f"*{row['source'].strip()}*")
             st.markdown(f"*{row['contributor'].strip()}*")
 else:
-    if st.checkbox('Show all instructions')
+    if st.checkbox('Show all instructions'):
         for n_row, row in df.reset_index().iterrows():
         i = n_row%N_cards_per_row
         if i==0:
