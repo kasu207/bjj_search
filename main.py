@@ -41,5 +41,6 @@ if text_search:
             st.markdown(f"**{row['title'].strip()}**")
             st.markdown(f"*{row['instructor'].strip()}*")
             st.markdown(f"*{row['game'].strip()}*")
+            st.markdown(f"*{row['source'].strip()}*")
             st.markdown(f"*{row['contributor'].strip()}*")
 
