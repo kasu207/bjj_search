@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import requests
-from streamlit-javascript import st_javascript
+
 
 # Page setup
 st.set_page_config(page_title="BJJ Instructions Search Engine", page_icon="🦐", layout="wide")
