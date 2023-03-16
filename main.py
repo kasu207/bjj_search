@@ -30,9 +30,25 @@ m4 = df["type"].str.contains(text_search, case=False)
 df_search = df[m1 | m2 | m3 | m4]
 
 # Show the results, if you have a text_search
-N_cards_per_row = 3
+N_cards_per_row = 4
 if text_search:
     for n_row, row in df_search.reset_index().iterrows():
+        i = n_row%N_cards_per_row
+        if i==0:
+            st.write("---")
+            cols = st.columns(N_cards_per_row, gap="large")
+        # draw the card
+        with cols[n_row%N_cards_per_row]:
+            st.caption(f"{row['title'].strip()} - {row['game'].strip()}")
+            st.markdown(f"**{row['title'].strip()}**")
+            st.image(f"{row['thumbnail']}")
+            st.markdown(f"*{row['instructor'].strip()}*")
+            st.markdown(f"*{row['game'].strip()}*")
+            st.markdown(f"*{row['source'].strip()}*")
+            st.markdown(f"*{row['contributor'].strip()}*")
+else:
+    if st.checkbox('Show all instructions')
+        for n_row, row in df.reset_index().iterrows():
         i = n_row%N_cards_per_row
         if i==0:
             st.write("---")
