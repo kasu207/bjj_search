@@ -1,22 +1,27 @@
 import streamlit as st
 import pandas as pd
 import requests
-import pygsheets
 
 
 # Page setup
 st.set_page_config(page_title="BJJ Instructions Search Engine", page_icon="🦐", layout="wide")
 st.title("BJJ Instructions Search Engine")
 
+
 # Styling
 with open('style.css') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 # Connect to the Google Sheet
-sheet_id = "17AvwdOvpD7CaFVF9CKGWS6kJ4gNeqcfTV6ekZiGGqwU"
-sheet_name = "list"
-url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/gviz/tq?tqx=out:csv&sheet={sheet_name}"
-df = pd.read_csv(url, dtype=str).fillna("")
+@st.cache_data(ttl=600)
+def load_data(sheets_url):
+    csv_url = sheets_url.replace("/edit#gid=", "/export?format=csv&gid=")
+    return pd.read_csv(csv_url, dtype=str).fillna(""))
+
+df = load_data(st.secrets["gsheetsurl"])
+
+#sheet_id = "17AvwdOvpD7CaFVF9CKGWS6kJ4gNeqcfTV6ekZiGGqwU"
+#sheet_name = "list"
 
 # Use a text_input to get the keywords to filter the dataframe
 text_search = st.text_input("Search videos by title, instructor, game play", value="")
