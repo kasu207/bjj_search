@@ -48,5 +48,5 @@ if text_search:
             st.markdown(f"*{row['game'].strip()}*")
             st.markdown(f"*{row['source'].strip()}*")
             st.markdown(f"*{row['contributor'].strip()}*")
-            st.image(f"{row['thumbnail']})
+            st.image(f"{row['thumbnail']}")
 
