@@ -18,7 +18,7 @@ url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/gviz/tq?tqx=out:csv&sh
 df = pd.read_csv(url, dtype=str).fillna("")
 
 # Use a text_input to get the keywords to filter the dataframe
-text_search = st.text_input("Search videos by title, instructor, game ply", value="")
+text_search = st.text_input("Search videos by title, instructor, game play", value="")
 
 # Filter the dataframe using masks
 m1 = df["title"].str.contains(text_search, case=False)
