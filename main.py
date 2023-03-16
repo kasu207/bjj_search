@@ -1,10 +1,15 @@
 import streamlit as st
 import pandas as pd
 import requests
+from streamlit-javascript import st_javascript
 
 # Page setup
 st.set_page_config(page_title="BJJ Instructions Search Engine", page_icon="🦐", layout="wide")
 st.title("BJJ Instructions Search Engine")
+
+# Styling
+with open('style.css') as f:
+    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 # Connect to the Google Sheet
 sheet_id = "17AvwdOvpD7CaFVF9CKGWS6kJ4gNeqcfTV6ekZiGGqwU"
@@ -36,4 +41,5 @@ if text_search:
             st.markdown(f"**{row['title'].strip()}**")
             st.markdown(f"*{row['instructor'].strip()}*")
             st.markdown(f"*{row['game'].strip()}*")
+            st.markdown(f"*{row['contributor'].strip()}*")
 
