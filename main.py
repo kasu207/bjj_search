@@ -30,7 +30,7 @@ m4 = df["type"].str.contains(text_search, case=False)
 df_search = df[m1 | m2 | m3 | m4]
 
 # Show the results, if you have a text_search
-N_cards_per_row = 4
+N_cards_per_row = 3
 if text_search:
     for n_row, row in df_search.reset_index().iterrows():
         i = n_row%N_cards_per_row
