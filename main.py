@@ -15,8 +15,7 @@ with open('style.css') as f:
 # Connect to the Google Sheet
 @st.cache_data(ttl=600)
 def load_data(sheets_url):
-    csv_url = sheets_url.replace("/edit#gid=", "/export?format=csv&gid=")
-    return pd.read_csv(csv_url, dtype=str).fillna("")
+    return pd.read_csv(sheets_url, dtype=str).fillna("")
 
 df = load_data(st.secrets["gsheetsurl"])
 
