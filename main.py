@@ -19,9 +19,6 @@ def load_data(sheets_url):
 
 df = load_data(st.secrets["gsheetsurl"])
 
-#sheet_id = "17AvwdOvpD7CaFVF9CKGWS6kJ4gNeqcfTV6ekZiGGqwU"
-#sheet_name = "list"
-
 # Use a text_input to get the keywords to filter the dataframe
 text_search = st.text_input("Search videos by title, instructor, game play", value="")
 
@@ -44,9 +41,10 @@ if text_search:
         with cols[n_row%N_cards_per_row]:
             st.caption(f"{row['title'].strip()} - {row['game'].strip()}")
             st.markdown(f"**{row['title'].strip()}**")
+            st.image(f"{row['thumbnail']}")
             st.markdown(f"*{row['instructor'].strip()}*")
             st.markdown(f"*{row['game'].strip()}*")
             st.markdown(f"*{row['source'].strip()}*")
             st.markdown(f"*{row['contributor'].strip()}*")
-            st.image(f"{row['thumbnail']}")
+            
 
