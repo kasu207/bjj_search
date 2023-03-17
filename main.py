@@ -5,7 +5,6 @@ import requests
 
 # Page setup
 st.set_page_config(page_title="BJJ Instructions Search Engine", page_icon="🦐", layout="wide")
-st.title("BJJ Instructions Search Engine")
 
 
 # Styling
@@ -18,6 +17,11 @@ def load_data(sheets_url):
     return pd.read_csv(sheets_url, dtype=str).fillna("")
 
 df = load_data(st.secrets["gsheetsurl"])
+
+#Content Design
+st.title("BJJ Instructions Search Engine")
+st.subheader('Show BJJ Flowchart')
+
 
 # Use a text_input to get the keywords to filter the dataframe
 text_search = st.text_input("Search videos by title, instructor, game play", value="")
