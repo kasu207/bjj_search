@@ -21,6 +21,11 @@ div.css-1a32fsj.e19lei0e0{
   overflow: hidden;
   transition: all .2s ease-in-out;
 }
+
+div.css-1v0mbdj.etr89bj1.img{
+  height:auto
+}
+
 .card {
   /* Add shadows to create the "card" effect */
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
