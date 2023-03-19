@@ -23,7 +23,10 @@ div.css-1a32fsj.e19lei0e0{
 }
 
 div.css-1v0mbdj.etr89bj1.img{
-  height:auto
+  max-width: inherit;
+  max-height: inherit;
+  height: inherit;
+  width: inherit;
 }
 
 .card {
