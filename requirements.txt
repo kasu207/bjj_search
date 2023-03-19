@@ -1,4 +1,6 @@
 streamlit
 pandas
 requests
+streamlit.components.v1
+Image
 

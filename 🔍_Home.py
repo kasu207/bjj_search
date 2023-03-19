@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import requests
+import streamlit.components.v1 as components
 
 
 # Page setup
@@ -52,6 +53,8 @@ if text_search:
             st.markdown(f"**Type:** *{row['type'].strip()}*")
             st.markdown(f"*{row['source'].strip()}*")
             st.markdown(f"*{row['contributor'].strip()}*")
+            st.write('hier die andere Karte')
+            
 else:
     if st.checkbox('Show all instructions'):
         for n_row, row in df.reset_index().iterrows():
