@@ -1,2 +1,8 @@
 import streamlit as st
-import pandas as pd
+from pathlib import Path
+
+def read_markdown_file(markdown_file):
+    return Path(markdown_file).read_text()
+
+intro_markdown = read_markdown_file("glossar.md")
+st.markdown(intro_markdown, unsafe_allow_html=True)

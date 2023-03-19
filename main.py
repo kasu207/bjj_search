@@ -20,12 +20,11 @@ def load_data(sheets_url):
 df = load_data(st.secrets["gsheetsurl"])
 
 #Content Design
-st.title("BJJ Instructions Search Engine")
-st.subheader('Show BJJ Flowchart')
+st.title("BJJ Anleitung Search Engine")
 
 
 # Use a text_input to get the keywords to filter the dataframe
-text_search = st.text_input("Search videos by title, instructor, game play", value="")
+text_search = st.text_input("Suche nach Videos nach Title, Instructor, Gameplay", value="")
 
 # Filter the dataframe using masks
 m1 = df["title"].str.contains(text_search, case=False)
@@ -56,7 +55,7 @@ if text_search:
             st.write('hier die andere Karte')
             
 else:
-    if st.checkbox('Show all instructions'):
+    if st.checkbox('Zeige mir alle Anleitungen'):
         for n_row, row in df.reset_index().iterrows():
             i = n_row%N_cards_per_row
             if i==0:
